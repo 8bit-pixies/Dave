@@ -50,3 +50,6 @@ Temporary Items
 python/.spyderworkspace
 .spyder*
 __pycache__
+
+# R Studd
+R/*
