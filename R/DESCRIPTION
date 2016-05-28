@@ -1,0 +1,17 @@
+Package: Dave
+Type: Package
+Title: Simple Feature Store for R
+Version: 0.1.0
+Author: Chapman Siu
+Maintainer: Chapman Siu <chpmn.siu@gmail.com>
+Description: Suite of tools for feature store and feature engineering
+    for R based on the "entity", "attribute", "value" framework. This
+    is meant to be a library which has strong interoperability,
+    hence 'json lines' file format is used among several languages
+License: MIT
+LazyData: TRUE
+Imports:
+  jsonlite,
+  dplyr,
+  lubridate
+Suggests: testthat

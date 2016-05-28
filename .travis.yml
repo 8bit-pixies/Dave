@@ -1,11 +1,25 @@
-language: python
-python:
-  - "2.7"
-  - "3.4"
-  - "3.5"
-before_install:
-- cd python
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
-script: nosetests
+sudo: false
+
+matrix:
+  include:
+
+  - os: linux
+    language: python
+    python:
+      - "2.7"
+      - "3.4"
+      - "3.5"
+    before_install:
+    - cd python
+    # command to install dependencies
+    install: "pip install -r requirements.txt"
+    # command to run tests
+    script: nosetests
+    env: TRAVIS_LANG=python
+
+  - os: linux
+    language: r
+    cache: packages
+    before_install:
+    - cd R
+    env: TRAVIS_LANG=R

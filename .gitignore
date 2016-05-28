@@ -51,5 +51,9 @@ python/.spyderworkspace
 .spyder*
 __pycache__
 
-# R Studd
-R/*
+# R Stuff
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+..Rcheck
