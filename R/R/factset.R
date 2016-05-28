@@ -38,4 +38,16 @@ flatten_df <- function(factsets, schema=NULL) {
     funs(f))
 }
 
+#' Load factsets is the key function which takes in a jsonline files and flattens, applying
+#' all relevant transformations based on the schema.
+#'
+#' @param path is the path of the jsonlines file
+#' @param schema is the schema information
+#' @export
+load_factsets <- function(path, schema = NULL) {
+  schema <- check_schema(schema)
+  factsets <- load_jsonlines(path)
 
+  factsets[schema[['datetime']]] <- to_datetime(factsets[schema[['datetime']]])
+  return(flatten_df(factsets, schema))
+}
