@@ -25,12 +25,12 @@ an optional longitude component being time (if applicable)
 For example, the following two fact sets are equivalent:
 
 ```
-{id: "cust_001", as_at: "2016-05-28T11:39:+00:00", gender: "male", zipcode: "123456"}
+{"id": "cust_001", "as_at": "2016-05-28T11:39:+00:00", "gender": "male", "zipcode": "123456"}
 ```
 
 ```
-{id: "cust_001", as_at: "2016-05-28T11:39:+00:00", gender: "male"}
-{id: "cust_001", as_at: "2016-05-28T11:39:+00:00", zipcode: "123456"}
+{"id": "cust_001", "as_at": "2016-05-28T11:39:+00:00", "gender": "male"}
+{"id": "cust_001", "as_at": "2016-05-28T11:39:+00:00", "zipcode": "123456"}
 ```
 
 Feature sets
