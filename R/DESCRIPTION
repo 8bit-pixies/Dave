@@ -7,11 +7,14 @@ Maintainer: Chapman Siu <chpmn.siu@gmail.com>
 Description: Suite of tools for feature store and feature engineering
     for R based on the "entity", "attribute", "value" framework. This
     is meant to be a library which has strong interoperability,
-    hence 'json lines' file format is used among several languages
-License: MIT
+    hence 'json lines' file format is used among several languages.
 LazyData: TRUE
 Imports:
-  jsonlite,
-  dplyr,
-  lubridate
-Suggests: testthat
+    jsonlite,
+    dplyr,
+    lubridate
+Suggests:
+    testthat
+License: MIT + file LICENSE
+URL: https://github.com/chappers/Dave
+RoxygenNote: 5.0.1
