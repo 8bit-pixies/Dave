@@ -48,3 +48,5 @@ Temporary Items
 
 # Python stuff
 python/.spyderworkspace
+.spyder*
+__pycache__

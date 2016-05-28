@@ -1,2 +1,1 @@
-pandas
-json
+pandas>=0.13.0
