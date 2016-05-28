@@ -11,8 +11,7 @@ Description: Suite of tools for feature store and feature engineering
 LazyData: TRUE
 Imports:
     jsonlite,
-    dplyr,
-    lubridate
+    dplyr
 Suggests:
     testthat
 License: MIT + file LICENSE
