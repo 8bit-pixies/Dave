@@ -4,7 +4,7 @@ from Dave.factset import load_factsets, flatten_dataframe, export_factsets, load
 
 def test_simplejson():    
     factsets = load_factsets("Dave/tests/data/simple.json", {'entity': 'id', 'datetime':'as_at'})
-    assert_equal(factsets, [{'as_at': '2016-05-28T11:39:00', 'zipcode': '123456', 'id': 'cust_001', 'gender': 'male'}])
+    assert_equal(set(factsets.columns), set(['as_at', 'zipcode', 'id', 'gender']))
     
 def test_flatten():
     import pandas as pd
@@ -14,7 +14,7 @@ def test_flatten():
         'info1': [None, 1],
         'info2': [2, None]
     })    
-    assert_equal(flatten_dataframe(df), [{'info1': 1.0, 'datetime': 1.0, 'info2': 2.0, 'entity': 1.0}])
+    assert_equal(flatten_dataframe(df, export='dict'), [{'info1': 1.0, 'datetime': 1.0, 'info2': 2.0, 'entity': 1.0}])
 
 def test_export():
     import json
