@@ -5,7 +5,7 @@ Dave: a framework for a feature store
 
 Dave is a feature store. Simple as that. It stores facts and extracts features.
 This version simply demonstrates how this concept works in environments like
-`python` and (soon to be added) `R`.
+`python` and `R`.
 
 Dave is inspired by Ambiata's implementation of Ivory, though treats facts
 in a slightly different way.
@@ -43,7 +43,7 @@ Feature sets can be thought of in two parts of the same picture:
 *  Feature engineering
 *  Feature extraction
 
-**Feature engineer** may be of interest when you take data over a time range; for
+**Feature engineering** may be of interest when you take data over a time range; for
  example if we are interested in duration between events, simply looking at
  snapshot related information may not be sufficient.
 
