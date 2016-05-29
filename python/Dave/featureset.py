@@ -1,14 +1,6 @@
 from Dave.factset import load_factsets, check_schema
 
 
-def get_snapshot(path_or_df, schema=None, date=None):
-    """gets the snapshot of the input data at a particular point in time"""    
-    return get_filtered(path_or_df, schema, date, method="snapshot")
-
-def get_gradient(path_or_df, schema=None, date=None):
-    """get gradient related information for a period of time"""
-    return get_filtered(path_or_df, schema, date, method="gradient")
-    
 def get_filtered(path_or_df, schema=None, date=None, method="snapshot"):
     """get gradient related information for a period of time"""
     if schema is not None and not isinstance(schema, dict):
@@ -37,4 +29,13 @@ def get_filtered(path_or_df, schema=None, date=None, method="snapshot"):
     # apply transformations (to do)
     return df
     
+    
+
+def get_snapshot(path_or_df, schema=None, date=None):
+    """gets the snapshot of the input data at a particular point in time"""    
+    return get_filtered(path_or_df, schema, date, method="snapshot")
+
+def get_gradient(path_or_df, schema=None, date=None):
+    """get gradient related information for a period of time"""
+    return get_filtered(path_or_df, schema, date, method="gradient")
     
