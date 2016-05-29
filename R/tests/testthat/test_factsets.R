@@ -15,5 +15,7 @@ test_that("dataframes as flattened corrected", {
   expect_equal(dim(simple_df), c(1,4))
 })
 
-
+test_that("export factsets works as expected", {
+  expect_equal(export_factsets(data.frame(a=1)), "{\"a\":1}")
+})
 

@@ -51,3 +51,23 @@ load_factsets <- function(path, schema = NULL) {
   factsets[schema[['datetime']]] <- to_datetime(factsets[schema[['datetime']]])
   return(flatten_df(factsets, schema))
 }
+
+#' Export factsets exports the dataframe into a jsonlines file format.
+#'
+#' @param factset is the data frame to be exported
+#' @param path path is the optional path which the file is to be saved
+#' @importFrom jsonlite toJSON stream_out
+#' @export
+export_factsets <- function(factset, path=NULL) {
+  if(is.null(path)) {
+    jsonlines <- vector("character")
+    con <- textConnection('jsonlines', 'wr', local=T)
+    stream_out(factset, con=con)
+    close(con)
+    return(paste0(jsonlines, collapse="\n"))
+  } else {
+    con_out <- file(path)
+    stream_out(factset, con=con_out)
+    return(NULL)
+  }
+}
