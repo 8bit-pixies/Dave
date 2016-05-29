@@ -2,7 +2,6 @@
 
 import json
 import pandas as pd # for flattening?
-import dateutil.parser
 
 def check_schema(schema):
     '''checks for valid schema'''

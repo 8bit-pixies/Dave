@@ -27,12 +27,12 @@ load_jsonlines <- function(path) {
 #'
 #' @param factsets is the dataframe to be flattened
 #' @param schema is the provided schema of the dataframe
-#' @importFrom dplyr group_by_ summarise_each funs first
+#' @importFrom dplyr group_by_ summarise_each funs last
 #' @export
 flatten_df <- function(factsets, schema=NULL) {
   schema <- check_schema(schema)
 
-  f <- function(.) if(length(unique(.[!is.na(.)])) > 1L) . else first(.[!is.na(.)])
+  f <- function(.) if(length(unique(.[!is.na(.)])) > 1L) . else last(.[!is.na(.)])
   summarise_each(
     group_by_(factsets, schema[['entity']], schema[['datetime']]),
     funs(f))
