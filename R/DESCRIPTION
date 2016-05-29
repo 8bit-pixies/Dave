@@ -1,7 +1,7 @@
 Package: Dave
 Type: Package
 Title: Simple Feature Store for R
-Version: 0.1.0
+Version: 0.2.0
 Author: Chapman Siu
 Maintainer: Chapman Siu <chpmn.siu@gmail.com>
 Description: Suite of tools for feature store and feature engineering
