@@ -32,7 +32,7 @@ def flatten_dataframe(factsets, schema=None, export=None):
     schema = check_schema(schema)
     df = (factsets
             .groupby([schema['datetime'], schema['entity']])
-            .agg(lambda x: x.dropna().iget(-1))
+            .agg(lambda x: x.dropna().iloc[-1])
             .reset_index())
     if export is None:
         return df
