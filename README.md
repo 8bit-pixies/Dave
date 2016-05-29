@@ -1,7 +1,7 @@
 Dave: a framework for a feature store
 =====================================
 
-[![Build Status](https://travis-ci.org/chappers/Dave.svg?branch=master)](https://travis-ci.org/chappers/Dave)
+[![Build Status](https://travis-ci.org/Jules-and-Dave/Dave.svg?branch=master)](https://travis-ci.org/Jules-and-Dave/Dave)
 
 Dave is a feature store. Simple as that. It stores facts and extracts features.
 This version simply demonstrates how this concept works in environments like
