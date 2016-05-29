@@ -31,9 +31,9 @@ def flatten_dataframe(factsets, schema=None, export=None):
     '''takes in list of python dicts, and schema and flattens'''    
     schema = check_schema(schema)
     df = (factsets
-                .groupby([schema['datetime'], schema['entity']])
-                .agg(lambda x: x.iloc[x.last_valid_index()])
-                .reset_index())
+            .groupby([schema['datetime'], schema['entity']])
+            .agg(lambda x: x.dropna().iget(-1))
+            .reset_index())
     if export is None:
         return df
     if export == 'dict':

@@ -13,7 +13,7 @@ def test_snapshotsimple():
     assert_equal(get_snapshot(flatten_dataframe(df)).shape, 
                  flatten_dataframe(df).shape)
 
-def test_snapshotsimple():
+def test_snapshotsimple2():
     import pandas as pd
     df = pd.DataFrame({
         'entity' : [1,1,1],
@@ -23,4 +23,3 @@ def test_snapshotsimple():
     })    
     assert_not_equal(get_snapshot(flatten_dataframe(df)).shape, 
                      flatten_dataframe(df).shape)
-
