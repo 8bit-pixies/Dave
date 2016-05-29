@@ -50,6 +50,7 @@ Temporary Items
 python/.spyderworkspace
 .spyder*
 __pycache__
+*.pyc
 
 # R Stuff
 .Rproj.user
