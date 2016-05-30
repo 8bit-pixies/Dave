@@ -9,9 +9,13 @@ matrix:
     before_install:
     - cd python
     # command to install dependencies
-    install: "pip install -r requirements.txt"
+    install: 
+    - pip install codecov
+    - pip install -r requirements.txt
     # command to run tests
-    script: nosetests
+    script: nosetests --with-coverage
+    after_success:
+    - codecov
     env: TRAVIS_LANG=python
 
   - os: linux
@@ -20,9 +24,13 @@ matrix:
     before_install:
     - cd python
     # command to install dependencies
-    install: "pip install -r requirements.txt"
+    install: 
+    - pip install codecov
+    - pip install -r requirements.txt
     # command to run tests
-    script: nosetests
+    script: nosetests --with-coverage
+    after_success:
+    - codecov
     env: TRAVIS_LANG=python
 
   - os: linux
@@ -31,9 +39,13 @@ matrix:
     before_install:
     - cd python
     # command to install dependencies
-    install: "pip install -r requirements.txt"
+    install: 
+    - pip install codecov
+    - pip install -r requirements.txt
     # command to run tests
-    script: nosetests
+    script: nosetests --with-coverage
+    after_success:
+    - codecov
     env: TRAVIS_LANG=python
 
   - os: linux
@@ -41,4 +53,6 @@ matrix:
     cache: packages
     before_install:
     - cd R
+    after_success:
+    - Rscript -e 'install.packages("covr"); covr::codecov()'
     env: TRAVIS_LANG=R
