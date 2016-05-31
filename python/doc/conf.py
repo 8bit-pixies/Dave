@@ -13,11 +13,37 @@
 # serve to show the default.
 # following: http://www.slideshare.net/shimizukawa/sphinx-autodoc-automated-api-documentation-europython-2015-in-bilbao
 # and http://stackoverflow.com/questions/15090894/how-to-generate-python-documentation-using-sphinx-with-zero-configuration
-
-# we run:
+#
+# # instructions....
+# # Step 1
+# sphinx-quickstart doc -m
+# ...
+# Project name: PROJ
+# Author name(s): NAME
+# Project version: 0.0.0
+# ...
+#
+# # Step 2
+# add to conf.py
+# ```
+# sys.path.insert(0, os.path.abspath('..'))
+# extensions = ['sphinx.ext.autodoc']
+# ```
+#
+# # Step 3
+# Generate `rst` files using: in the top directory
+# ```
 # sphinx-apidoc -o doc Dave
 # cd doc
 # make html
+# ```
+#
+# # Step 4 (Optional)
+# Make sure you add exclusions in the `conf.py` file for the modules you want
+# not to generate documentations
+# ```
+# exclude_patterns = ['_build', '*.tests.rst']
+# ```
 
 import sys
 import os
