@@ -9,3 +9,16 @@ Installation
 ```
 python setup.py install
 ```
+
+Generating Documentation
+========================
+
+Make sure Sphinx is installed (`pip install sphinx`).
+
+Then run in command line:
+
+```
+sphinx-apidoc -o doc Dave --force
+cd doc
+make html
+```
