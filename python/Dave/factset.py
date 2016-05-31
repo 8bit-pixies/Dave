@@ -12,23 +12,24 @@ def check_schema(schema):
         if "entity" not in schema.keys() or "datetime" not in schema.keys():
             raise Exception("""Schema must be a dictionary with keys: "entity", "datetime" """)
     return schema
-    
+
 def load_jsonlines(path, stream=False):
     '''Loads the jsonlines file either as a stream,
     or through pandas `read_json`. Note that the `read_json` method will
-    automatically convert many fields into the correct datatype and 
+    automatically convert many fields into the correct datatype and
     should be the preferred method if the data can fit in memory'''
+    import json
     if stream:
-        with open(path) as jsonlines:    
+        with open(path) as jsonlines:
             factsets = pd.DataFrame(json.loads(line) for line in jsonlines)
     else:
         jsonlines = open(path, 'r').readlines()
         json = "[{}]".format(", ".join(jsonlines))
         factsets = pd.read_json(json)
     return factsets
-               
+
 def flatten_dataframe(factsets, schema=None, export=None):
-    '''takes in list of python dicts, and schema and flattens'''    
+    '''takes in list of python dicts, and schema and flattens'''
     schema = check_schema(schema)
     df = (factsets
             .groupby([schema['datetime'], schema['entity']])
@@ -39,7 +40,7 @@ def flatten_dataframe(factsets, schema=None, export=None):
     if export == 'dict':
         return df.to_dict(orient='records')
 
-# the "main" functions you should be using, the above are helper functions                
+# the "main" functions you should be using, the above are helper functions
 def load_factsets(path, schema=None):
     '''
     Read factset in the form of jsonlines, and outputs a flattened
@@ -47,13 +48,13 @@ def load_factsets(path, schema=None):
     '''
     schema = check_schema(schema)
     factsets = load_jsonlines(path)
-    
+
     return flatten_dataframe(factsets, schema)
-    
+
 def export_factsets(factls, path=None):
-    """takes in factset in the form of list of dictionaries, and exports to 
+    """takes in factset in the form of list of dictionaries, and exports to
     path (if provided) otherwise dumps it to a string"""
-    
+
     if path is None:
         return '\n'.join([json.dumps(jsonline) for jsonline in factls])
     # check overwriting
@@ -62,5 +63,3 @@ def export_factsets(factls, path=None):
             json.dump(jsonline, f)
             f.write('\n')
     return None
-    
-
