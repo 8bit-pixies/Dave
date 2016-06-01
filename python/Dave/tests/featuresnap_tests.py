@@ -49,6 +49,7 @@ def test_gradient():
         'info1': [None, 1,1,1],
         'info2': [2, None,1,1]
     })
-    assert_raises(Exception, get_gradient, flatten_dataframe(df), 2)
+    assert_raises(Exception, get_gradient, flatten_dataframe(df), [0,2])
     assert_equal(get_gradient(flatten_dataframe(df), date=[0,2])['datetime'].max(), 2)
+    assert_equal(get_gradient(flatten_dataframe(df), date=[0,2])['datetime'].min(), 1)
     assert_not_equal(get_gradient(flatten_dataframe(df), date=[0,2])['datetime'].max(), df['datetime'].max())
