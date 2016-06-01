@@ -65,9 +65,9 @@ export_factsets <- function(factset, path=NULL) {
     stream_out(factset, con=con)
     close(con)
     return(paste0(jsonlines, collapse="\n"))
-  } else {
+  } else { # nocov start
     con_out <- file(path)
     stream_out(factset, con=con_out)
     return(NULL)
-  }
+  } # nocov end
 }

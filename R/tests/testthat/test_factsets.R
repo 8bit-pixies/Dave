@@ -19,3 +19,12 @@ test_that("export factsets works as expected", {
   expect_equal(export_factsets(data.frame(a=1)), "{\"a\":1}")
 })
 
+test_that("check schema correctly returns schema", {
+  expect_equal(check_schema(), list(entity="entity", datetime="datetime"))
+  expect_error(check_schema(list(a=1)))
+})
+
+test_that("load factsets actually loads something", {
+  input_dat <- system.file("extdata", "simple.json", package="Dave")
+  sample_dat <- load_factsets(input_dat, list(entity='id', datetime='as_at'))
+})
