@@ -9,7 +9,7 @@ This version simply demonstrates how this concept works in environments like
 `python` and `R`.
 
 Dave is inspired by Ambiata's implementation of Ivory, though treats facts
-in a slightly different way.
+in a slightly different way. It is also influenced by `LIBSVM` format; creating a sparse data format in a human-readable form.
 
 Concepts
 ========
