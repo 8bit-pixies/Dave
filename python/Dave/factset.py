@@ -4,7 +4,7 @@ import json
 import pandas as pd # for flattening?
 
 def check_schema(schema):
-    '''checks for valid schema'''
+    """checks for valid schema"""
     if schema is None:
         schema = {"entity": "entity",
                   "datetime" : "datetime"}
@@ -14,10 +14,10 @@ def check_schema(schema):
     return schema
 
 def load_jsonlines(path, stream=False):
-    '''Loads the jsonlines file either as a stream,
+    """Loads the jsonlines file either as a stream,
     or through pandas `read_json`. Note that the `read_json` method will
     automatically convert many fields into the correct datatype and
-    should be the preferred method if the data can fit in memory'''
+    should be the preferred method if the data can fit in memory"""
     import json
     if stream:
         with open(path) as jsonlines:
@@ -29,7 +29,7 @@ def load_jsonlines(path, stream=False):
     return factsets
 
 def flatten_dataframe(factsets, schema=None, export=None):
-    '''takes in list of python dicts, and schema and flattens'''
+    """takes in list of python dicts, and schema and flattens"""
     schema = check_schema(schema)
     df = (factsets
             .groupby([schema['datetime'], schema['entity']])
@@ -42,10 +42,10 @@ def flatten_dataframe(factsets, schema=None, export=None):
 
 # the "main" functions you should be using, the above are helper functions
 def load_factsets(path, schema=None):
-    '''
+    """
     Read factset in the form of jsonlines, and outputs a flattened
     json, and transforms the datatypes as specified in the schema dictionary
-    '''
+    """
     schema = check_schema(schema)
     factsets = load_jsonlines(path)
 
